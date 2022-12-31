@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Day 5</title>
+    <style>
+        pre{
+            font-size: 15px;
+        }
+        *{
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">JS DAY 5</h1>
+    <hr>
+    <div>
+    <h3>Q 1.what is hoisting?</h3>
+    <p>Hoisting is the default behaviour of js.where the all the functions and varaibales declarations are moved to the top</p>
+    <pre>
+        hoistedvariable=3;
+        console.log(hoistedvariable);
+        var hoistedvariable
+       
+    </pre>
+    <hr>
+    <h3>Q 2.what is temporal dead zone?</h3>
+    <p>temporal deaad zone is a behaviour that occurs with variables declared using let and const keywords.it is a behaviour we try to acess a variable before its initialized</p>
+    <pre>
+        function tempo(){
+            message='hello tempo';
+            let message
+        }
+        tempo();
+    </pre>
+    <hr>
+    <h3>Q 3.what is dom?</h3>
+    <p>DOM stands for document object model.it is an interface for html,by using the dom we can develop web pages in html.</p>
+    <hr>
+    <h3>Q 4.explain passed by value & passed by reference</h3>
+    <p>In js primitative data types are passed by value & non-primitative data types are passed by reference
+        <br>*imp its creates the memory for pbyv & it access the location in pbyr </p>
+        <pre>
+            <strong>passed by value</strong>
+            let a = 10;
+            let b = a;
+            b = a + 5;
+            console.log(a)
+            console.log(b)
+    
+            <strong>passed by reference</strong>
+            let obj1 = {
+                name: "yogi",
+                rollNo: 118;
+            }
+            let obj2 = obj1;
+    
+            obj2.rollNo = 135;
+            console.log(obj1);
+            console.log(obj2);
+    
+        </pre>
+        <hr>
+        <h3>Q 5.Write code to explain map and filter in arrays</h3>
+        <p>Map will iterate over all the elements on which it has been used, it will return a new array.</p>
+        <p>Filter will return a new array after checking a condition on each element of the old array.</p>
+        <pre>
+            let mapped=[2,3,4,5,6];
+            let modifiedmap=mapped.map(function(element){
+             return element*4
+            })
+            console.log(modifiedmap)
+         
+            //filter
+            let fill= [10,20,30,40]
+            let c = fill.filter(item=> item >10)
+            console.log(c)
+        </pre>
+        <hr>
+        <h3>Q 6.What is the purpose of async/await keywords?</h3>
+      <p> async and await are reserved keywords. Async function is a function declared with async keyword and await keyword is permitted within it.Async and await keywords are used to provide clean code to avoid the need of promise chains.
+        </p>
+        <pre>
+            let promise = new Promise(function(resolve,reject){
+                setTimeout(()=>{
+                    resolve("Promise resolved")
+                },3000)
+            })
+              async function myFunction(){
+                let result=await promise;
+                console.log(result);
+            }
+            myFunction();
+        </pre>
+        <hr>
+        <h3>Q 7.Give an example of async/await</h3>
+        <pre>
+            function resolveAfter2Seconds() {
+                return new Promise(resolve => {
+                  setTimeout(() => {
+                    resolve('resolved');
+                  }, 2000);
+                });
+              }
+              
+              async function asyncCall() {
+                console.log('calling');
+                const result = await resolveAfter2Seconds();
+                console.log(result);
+              }
+              
+              asyncCall();
+        </pre>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
